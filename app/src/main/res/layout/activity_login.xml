@@ -16,19 +16,7 @@
         tools:context=".view.LoginActivity">
 
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Login"
-            android:onClick="@{(view) -> loginViewModel.onClickLogin( view, emailEditText.getText().toString(), passwordEditText.getText().toString() )}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
-        <!--"-->
+
 
 
         <EditText
@@ -39,7 +27,8 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="100dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
+            android:text="@={loginViewModel.email}"
             android:hint="Email"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -54,11 +43,26 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:inputType="textVisiblePassword"
             android:hint="Password"
+            android:inputType="textPassword"
+            android:text="@={loginViewModel.password}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Login"
+            android:onClick="@{(view) -> loginViewModel.onClickLogin( view )}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+
 
 
     </android.support.constraint.ConstraintLayout>
