@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SmartCrop</string>
+    <string name="main_menu_auto_irrigation_lbl">Riego automático</string>
+    <string name="main_menu_sched_irrigation_lbl">Riego por calendario</string>
 </resources>

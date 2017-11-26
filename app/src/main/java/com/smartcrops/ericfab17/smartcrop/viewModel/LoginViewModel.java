@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.ObservableField;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
@@ -41,24 +42,6 @@ public class LoginViewModel extends BaseObservable {
             return;
         }
 
-/*        boolean valid = true;
-
-
-        if (TextUtils.isEmpty(email)) {
-            valid = false;
-        }
-
-        if (TextUtils.isEmpty(password)) {
-            valid = false;
-        }
-
-        if(!valid){
-            Toast.makeText( context, "YEAH", Toast.LENGTH_SHORT).show();
-            return;
-        }
-*/
-
-
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -66,7 +49,9 @@ public class LoginViewModel extends BaseObservable {
                 if (task.isSuccessful()){
                     Toast.makeText( context, "GOOD", Toast.LENGTH_SHORT).show();
                     FirebaseUser user = firebaseAuth.getCurrentUser();
+                    String userUID = user.getUid();
                     Intent userIntent = new Intent(context, UserActivity.class);
+                    userIntent.setData(Uri.parse(userUID));
                     context.startActivity(userIntent);
                 }
                 else{

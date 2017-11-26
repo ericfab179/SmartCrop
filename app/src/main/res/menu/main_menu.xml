@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/auto_irrigation"
+        android:title="@string/main_menu_auto_irrigation_lbl"/>
+    <item android:id="@+id/sched_irrigation"
+        android:title="@string/main_menu_sched_irrigation_lbl"/>
+
+</menu>
